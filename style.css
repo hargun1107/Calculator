@@ -13,32 +13,64 @@ body {
     display: flex;
     justify-content: center;
     align-items: cneter;
-    background: linear-gradient(45deg, #0a0a0a, #3a4452);
+    background: linear-gradient(45deg, #fce4ec, #e91e63);
+    flex-direction: column;
+}
+
+h1 {
+    color: #880e4f;
+    margin-bottom: 25px;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .calculator {
-    border: 1px solid #717377;
+    border: 1px solid #ff4081;
     padding: 20px;
     border-radius: 16px;
-    background: transparent;
-    box-shadow: 0px 3px 15px rgba(113,115,119,0.5);
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 3px 15px rgba(255,64,129,0.5);
+}
+
+.screen-wrapper {
+    position: relative;
+    width: 320px;
+    margin: 10px;
+}
+
+.screen-wrapper::before,
+.screen-wrapper::after {
+    content: "🎀";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    z-index: 2;
+}
+
+.screen-wrapper::before {
+    left: 20px;
+}
+
+.screen-wrapper::after {
+    right: 20px;
 }
 
 input {
-    width: 320px;
+    width: 100%;
     border: none;
-    padding: 24px;
-    margin: 10px;
-    background: transparent;
-    box-shadow: 0px 3px 15px rgbs(84, 84, 84, 0.1);
+    padding: 24px 60px;
+    background: #f8bbd0;
+    box-shadow: 0px 3px 15px rgba(84, 84, 84, 0.1);
     font-size: 40px;
     text-align: right;
     cursor: pointer;
-    color: white;
+    color: #4a0033;
+    border-radius: 10px;
 }
 
 input::placeholder{
-    color: #ffffff;
+    color: #880e4f;
 }
 
 button {
@@ -47,21 +79,29 @@ button {
     height: 60px;
     margin: 10px;
     border-radius: 50%;
-    background: transparent;
-    color: #ffffff;
+    background: #ffffff;
+    color: #d81b60;
     font-size: 20px;
-    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 10px rgba(255, 64, 129, 0.4); 
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.95);
 }
 
 .equalBtn {
-    background-color: orange;
+    background-color: #ff80ab;
+    color: white;
 }
 
 .operator {
-    color:#6dee0a ;
+    color: #d81b60;
+    background: #f8bbd0;
 }
 
 .extra {
-    color: greenyellow;
+    color: #d81b60;
+    background: #f8bbd0;
 }

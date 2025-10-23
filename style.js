@@ -1,13 +1,20 @@
 let input = document.getElementById('inputBox');
 let buttons = document.querySelectorAll('button');
 let string = "";
+
 buttons.forEach(button => {
     button.addEventListener('click', (e) => {
         const buttonValue = e.target.innerHTML;
 
         if (buttonValue === '=') {
             try {
-                string = String(new Function('return ' + string)());
+                string = eval(string);
+                
+                if (string === Infinity || string === -Infinity) {
+                    string = "Error";
+                }
+                
+                string = String(string);
             } catch (error) {
                 string = "Error";
             }
@@ -24,10 +31,10 @@ buttons.forEach(button => {
             input.value = string;
         } 
         
-        else if (string === "" && (buttonValue === '*' || buttonValue === '/' || buttonValue === '.' || buttonValue === '%')) {
+        else if ((buttonValue === '*' || buttonValue === '/' || buttonValue === '.' || buttonValue === '%') && string === "") {
             return;
         }
-
+        
         else {
             string += buttonValue;
             input.value = string;
